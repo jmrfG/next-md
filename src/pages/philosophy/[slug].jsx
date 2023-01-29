@@ -29,7 +29,7 @@ const Slug = ({
 
 
 const getStaticPaths = async () => {
-    const files = fs.readdirSync(path.join('src', 'Posts'))
+    const files = fs.readdirSync(path.join('src', 'Posts', 'Philosophy'))
     const paths = files.map(file => {
         return {params: {
             //this mf needs to have the same dummy name of the jsx file 
@@ -44,7 +44,7 @@ const getStaticPaths = async () => {
 
 const getStaticProps = async ({ params: { slug } }) => {
     //getting data locally, but, if data is stored else where, i could do an API call here
-    const mdWMeta = fs.readFileSync(path.join('src', 'Posts', slug + '.mdx'));
+    const mdWMeta = fs.readFileSync(path.join('src', 'Posts', 'Philosophy', slug + '.mdx'));
 
     const { data: frontmatter, content } = matter(mdWMeta)
     //At this point we have almost everythin ready to bust a nut, but we need that next-mdx-remote to actually render the file content.
