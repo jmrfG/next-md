@@ -1,25 +1,29 @@
-import fs from 'fs'
-import { Inter } from '@next/font/google'
-import path from 'path'
-import matter from 'gray-matter'
-import Link from 'next/link'
+//import fs from 'fs'
+//import { Inter } from '@next/font/google'
+//import path from 'path'
+//import matter from 'gray-matter'
+import axios from "axios";
 
-const Math = ({ posts }) => {
+import Link from 'next/link';
+
+const Math = (props) => {
+    console.log(props)
+    let data = props.posts.data
     return (
         <div className="mt-3">
             <p className="display-4 text-center">Mathematics</p>
             <p className="text-center">Topics</p>
             <div className="black" style={{ color: 'black' }}>
-                {posts.map((post, index) => (
-                    <Link href={'/math/' + post.slug} passHref key={index}>
+                {data.map((post) => (
+                    <Link href={'/math/' + post.id} passHref key={post.id}>
                         <div className="card mb-3 pointer" style={{ maxWidth: '540px' }}>
                             <div className="row g-0">
                                 <div className="col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title">{post.frontmatter.title}</h5>
-                                        <p className="card-text">{post.frontmatter.description}</p>
+                                        <h5 className="card-title">{post.attributes.Title}</h5>
+                                        <p className="card-text">{post.attributes.Description}</p>
                                         <p className="card-text">
-                                            <small className="text-muted">{post.frontmatter.date}</small>
+                                            <small className="text-muted">{post.attributes.publishedAt}</small>
                                         </p>
                                     </div>
                                 </div>
@@ -36,20 +40,14 @@ const Math = ({ posts }) => {
     )
 }
 
+
+
 export const getStaticProps = async () => {
     //getting data locally, but, if data is stored else where, i could do an API call here
-    const files = fs.readdirSync(path.join('src', 'Posts', 'Mathematics'))
-    const posts = files.map(file => {
-        const mdWMeta = fs.readFileSync(path.join('src', 'Posts', 'Mathematics', file));
-        const { data: frontmatter } = matter(mdWMeta);
-        return {
-            frontmatter,
-            slug: file.split('.')[0]
-        }
-    })
+    const posts = await axios.get("http://127.0.0.1:1337/api/posts")
     return {
         props: {
-            posts
+            posts: posts.data
         }
     };
 }

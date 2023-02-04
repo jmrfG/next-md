@@ -9,6 +9,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import Button from '../../components/Button/Button'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import axios from 'axios'
 //In order to create a dynamic path, I'll need to wrap the file name with square brackets
 //and settup the getStaticPaths function
 
