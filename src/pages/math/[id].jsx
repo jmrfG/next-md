@@ -33,7 +33,7 @@ const Post = ( {mdxSource} ) => {
 
 
 const getStaticPaths = async () => {
-    const posts = await axios.get("http://127.0.0.1:1337/api/posts")
+    const posts = await axios.get("https://strapi-production-1c44.up.railway.app/api/posts")
     const data = posts.data.data
     const paths = data.map((post) => {
         let id = post.id.toString();
@@ -47,9 +47,10 @@ const getStaticPaths = async () => {
 
 const getStaticProps = async ({ params }) => {
     //getting data locally, but, if data is stored else where, i could do an API call here
-    const posts = await axios.get(`http://127.0.0.1:1337/api/posts/${params.id}`);
+    console.log(params.id)
+    const posts = await axios.get(`https://strapi-production-1c44.up.railway.app/api/posts/${params.id}`);
     //At this point we have almost everythin ready to bust a nut, but we need that next-mdx-remote to actually render the file content.
-    const source = posts.data.data.attributes.Content
+    const source = posts.data.data.attributes.content
     //console.log(source) OK
     const mdxSource = await serialize(source, {
         mdxOptions: {

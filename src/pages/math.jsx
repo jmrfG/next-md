@@ -20,8 +20,8 @@ const Math = (props) => {
                             <div className="row g-0">
                                 <div className="col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title">{post.attributes.Title}</h5>
-                                        <p className="card-text">{post.attributes.Description}</p>
+                                        <h5 className="card-title">{post.attributes.title}</h5>
+                                        <p className="card-text">{post.attributes.description}</p>
                                         <p className="card-text">
                                             <small className="text-muted">{post.attributes.publishedAt}</small>
                                         </p>
@@ -44,7 +44,7 @@ const Math = (props) => {
 
 export const getStaticProps = async () => {
     //getting data locally, but, if data is stored else where, i could do an API call here
-    const posts = await axios.get("http://127.0.0.1:1337/api/posts")
+    const posts = await axios.get("https://strapi-production-1c44.up.railway.app/api/posts")
     return {
         props: {
             posts: posts.data
