@@ -12,7 +12,7 @@ const Bio = (props) => {
 
 //the same as getstaticprops, but using an API and delegating it to the server 
 export const getStaticProps = async () => {
-    const posts = await axios.get("http://127.0.0.1:1337/api/posts", {
+    const posts = await axios.get("https://strapi-production-1c44.up.railway.app/api/posts", {
         headers: {
             Authorization:''
         }
