@@ -11,7 +11,7 @@ export default function Home({ posts }) {
       <p className="display-4 text-center">Welcome</p>
       <p className="text-center mt-5">
         The pursuit of knowledge is a journey divine,<br></br>
-        An adventure that's both challenging and fine.<br></br>
+        An adventure that is both challenging and fine.<br></br>
         With every step taken, the mind doth grow,<br></br>
         As wisdom and insight begin to flow.<br></br>
         <br></br><br></br>
@@ -26,8 +26,8 @@ export default function Home({ posts }) {
         That enriches the soul and lifts the heart to win.<br></br>
         <br></br><br></br>
         So heed the call to pursue knowledge with might,<br></br>
-        For it's a journey that will bring endless delight.<br></br>
-        It's a path to follow, a destiny bright,<br></br>
+        For it is a journey that will bring endless delight.<br></br>
+        It is a path to follow, a destiny bright,<br></br>
         That leads to a place of peace, love and light.<br></br>
       </p>
     </div>
