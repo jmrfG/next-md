@@ -1,29 +1,25 @@
-//import fs from 'fs'
 //import { Inter } from '@next/font/google'
-//import path from 'path'
-//import matter from 'gray-matter'
 import axios from "axios";
 
 import Link from 'next/link';
 
 const Math = (props) => {
-    console.log(props)
     let data = props.posts.data
+
     return (
-        <div className="mt-3">
+        <div className="mt-4">
             <p className="display-4 text-center">Mathematics</p>
-            <p className="text-center">Topics</p>
-            <div className="black" style={{ color: 'black' }}>
+            <div style={{ color: 'black', maxWidth:'540px', margin: "0 auto"}}>
                 {data.map((post) => (
                     <Link href={'/math/' + post.id} passHref key={post.id}>
-                        <div className="card mb-3 pointer" style={{ maxWidth: '540px' }}>
+                        <div className="card mb-4 pointer" style={{ maxWidth: '540px' }}>
                             <div className="row g-0">
                                 <div className="col-md-8">
                                     <div className="card-body">
                                         <h5 className="card-title">{post.attributes.title}</h5>
                                         <p className="card-text">{post.attributes.description}</p>
                                         <p className="card-text">
-                                            <small className="text-muted">{post.attributes.publishedAt}</small>
+                                            <small className="text-muted">Published At: {post.attributes.publishedAt}</small>
                                         </p>
                                     </div>
                                 </div>

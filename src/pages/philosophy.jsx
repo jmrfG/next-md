@@ -6,13 +6,12 @@ import Link from 'next/link'
 
 const Philos = ({ posts }) => {
     return (
-        <div className="mt-3">
+        <div className="mt-5">
             <p className="display-4 text-center">Philosophy</p>
-            <p className="text-center">Topics</p>
-            <div className="black" style={{ color: 'black' }}>
+            <div style={{ color: 'black', maxWidth:'540px', margin: "0 auto"}}>
                 {posts.map((post, index) => (
-                    <Link href={'/philosophy/' + post.slug} passHref key={index}>
-                        <div className="card mb-3 pointer" style={{ maxWidth: '540px' }}>
+                    <Link href={'/philosophy/' + post.slug} passHref key={index} >
+                        <div className="card mb-4 pointer" style={{ maxWidth: '540px' }}>
                             <div className="row g-0">
                                 <div className="col-md-8">
                                     <div className="card-body">
