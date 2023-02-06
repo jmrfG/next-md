@@ -23,7 +23,6 @@ const components = { SyntaxHighlighter, Button }
 
 
 const Post = ( {mdxSource} ) => {
-    console.log(mdxSource)
     return (
         <div className="mt-4">
             <MDXRemote {...mdxSource} components={components}  />
