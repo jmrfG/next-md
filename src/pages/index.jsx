@@ -7,7 +7,7 @@ export default function Home(props) {
   return (
     <div className="mt-4">
         <p className="display-3 text-center">Some Thoughts</p>
-        <div style={{ color: 'black', maxWidth:'540px', margin: "0 auto"}}>
+        <div className="mt-4" style={{ color: 'black', maxWidth:'540px', margin: "0 auto"}}>
             {data.map((post) => (
                 <Link href={'/content/' + post.id} passHref key={post.id}>
                     <div className="card mb-4 pointer" style={{ maxWidth: '540px' }}>
